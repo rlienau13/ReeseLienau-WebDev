@@ -1,2 +1,8 @@
-Reading Response:
+Reading Response: "Five Important Considerations for Wireframing"
 Reese Lienau
+"As tempting as it is to just jump in and start designing screens… don’t do it! It’s in your best interest to sit down and deliberate over the details before diving in."
+ - I don't see how anybody could possibly want to jump in and start coding without some sort of plan hehe but maybe that's just me.
+"Get Feedback (Early)"
+ - This is something I have been hearing more and more in classes, esp. coding-based classes. Maybe it's time I start listening hehe.
+"Omnigraffle has been my go-to tool for both low and high-fidelity wireframes"
+ - Shucks, it ain't free
