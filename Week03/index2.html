@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Navbar in the Inline Block</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Rubik&family=Ubuntu&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            background-color: #999999;
+            /* height: 100px; */
+            /* overflow: hidden; */
+            /* parent elements of items that display inline block may need to have the font size zeroed out to remove the space between characters */
+            font-size: 0;
+            font-family: 'Rubik', sans-serif;
+            box-shadow: 5px 5px 15px 5px #333;
+            /* x, y, *blur*, *spread*, color */
+        }
+
+
+        li {
+            display: inline-block;
+            font-size: 16px;
+            color:
+        }
+
+        /* descendant selector */
+        nav li a {
+            display: block;
+            text-align: center;
+            width: 100px;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        li a.active {
+            background-color: rgba(255, 0, 0, 0.3);
+        }
+
+        li a:hover {
+            background-color: #111;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" class="active">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#" class="active">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+        </ul>
+    </nav>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Intro to CSS Text and Spans</title>
+    <!-- internal style sheet (ONLY APPLY TO THIS FILE) -->
+    <style type="text/CSS">
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        /* universal selector to zero out default margins or padding */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* tag selector applies to every instance of that tag on the page */
+      
+      /* universal selector */
+        * {
+            margin: 0;
+        }
+        /* tag/element/type selector */
+        h1 {
+            /* apply one side at a time individually */
+            margin-top: 1em;
+            /**/
+            margin: 1em 0.5 em;
+            font-family: Helvetica, Arial, sans-serif;
+            text-shadow: 4px 4px 2px pink;
+        }
+        /* one instance of an ID per page */
+        #important_text {
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+      p {
+        /* 1rem = 16px */
+        margin: 0.5 em 0;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0.5rem;
+        color: black;
+        line-height: 1.3;
+        /* #f50 same as #ff5500 */
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      .silly_text {
+        font-family: fantasy;
+        /* you can only choose from the font weight your font supports */
+        /* font-weight: 800; */
+        text-decoration: underline;
+      }
+
+      .indented {
+        text-indent: 20%;
+      }
+
+      .align_right {
+        text-align: right;
+      }
+
+      .align_justified {
+        text-align: justify;
+      }
+
+      #really_important {
+        font-weight: 600;
+        font-size: x-large;
+        font-style: oblique;
+        line-height: 1.5;
+        text-transform: uppercase;
+      }
+      .silly_font{
+        font-family: fantasy;
+        color: green;
+      }
+
+        /* descendant selsctor lokign for only the anchor tags inside paragraph tags */
+      p a {
+        color: rgba(255, 102, 0, 0.5);
+        text-decoration: none;
+      }
+
+      a {
+        color:pink;
+        text-decoration: none;
+      }
+
+    </style>
+
+<body>
+    <h1>Heading 1 Displays Block</h1>
+    <p>
+        <span class="silly_font">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis
+            justo porta, ultricies sem suscipit, hendrerit metus. Nunc aliquam tellus
+            eu tincidunt rhoncus. Mauris rhoncus risus nec venenatis ultrices.</span>
+        Vestibulum blandit laoreet enim, a aliquam neque tempor sit amet. Duis
+        varius metus vitae felis maximus sagittis. Curabitur vehicula vestibulum
+        felis et posuere. Donec scelerisque volutpat luctus.
+    </p>
+    <p>
+        Vivamus laoreet, eros quis tincidunt aliquam, orci nisl egestas lacus, sit
+        amet eleifend dolor leo ultricies enim. <a href="#">Nunc mauris neque, iaculis in
+            ullamcorper feugiat, rhoncus et mauris.</a> Aenean sem sem, congue vel
+        fringilla sed, ultrices rutrum purus. <span class="silly_font"> Phasellus luctus quam ut placerat
+            sagittis. Mauris vitae faucibus quam, sit amet accumsan magna. Cras nec
+            tempus ligula. Pellentesque a semper arcu.</span>
+
+    </p>
+    <p id="important_text">
+        Maecenas a nulla et nisi tristique ultricies. Etiam ut justo lacus. Duis
+        eu mauris eu mi finibus efficitur sed vel elit. Aenean vitae varius urna.
+        Nulla maximus tincidunt ipsum, a viverra nibh. Aliquam faucibus metus id
+        ante ullamcorper fermentum. Sed laoreet ipsum erat, ut scelerisque tortor
+        dignissim sed. Etiam maximus mi nulla, efficitur volutpat urna tincidunt
+        eu. Praesent ut ligula libero.
+
+
+    </p>
+
+    <a href="#"> link outside of p tag </a>
+
+</body>
+
+</html>
