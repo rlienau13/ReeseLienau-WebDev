@@ -1,0 +1,45 @@
+html,
+body {
+    margin: 0;
+}
+
+div {
+    /* save time by wiring in one border line */
+    border: 1px solid red;
+    padding: 10px;
+}
+
+/* strat with period to show that referencing class name */
+.abs-no-parent {
+    background-color: cornflowerblue;
+    /* absolutely posoitoned or fixed things are just like floating over the page, don't interact with other elements */
+    position: absolute;
+    top: 20%;
+    right: 100px;
+}
+
+.rel-parent {
+    background-color: blueviolet;
+    width: 50%;
+    height: 100vh;
+    /* 100%   --> of what the div was gonna take up, not the whole browser or page */
+    /* height: 100vh   -->  shows 100% of the viewport height */
+    position: relative;
+}
+
+.abs-rel-parent {
+    background-color: rgb(12, 237, 16);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: 10px;
+}
+
+header {
+    background-color: darkorange;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    /* sort of like a draw order (order in z direction), count by tens or add zeros */
+}
