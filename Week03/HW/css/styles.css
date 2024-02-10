@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Caudex&display=swap');
+/* font-family: 'Caudex', serif; */
+@import url('https://fonts.googleapis.com/css2?family=Caudex&family=Nunito+Sans:opsz,wght@6..12,200&display=swap');
+/* font-family: 'Nunito Sans', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* background: url("../img/bg.png") no-repeat center center fixed; */
+    /* background-size: cover; */
+    background-color: #fdfdfd;
+}
+
+body {
+    font-family: 'Caudex', serif;
+    font-weight: normal;
+}
+
+header {
+    font-family: 'Caudex', serif;
+    color: black;
+    text-align: center;
+    font-weight: normal;
+}
+
+header h1 {
+    font-size: 113px;
+    font-weight: normal;
+}
+
+header h2 {
+    font-size: 42px;
+    font-weight: normal;
+}
+
+header h3 {
+    font-size: 13px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    margin-left: 110px;
+    margin-right: 110px;
+}
+
+.column {
+    display: block;
+    grid-template-rows: auto;
+}
+
+.column img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 30px;
+}
