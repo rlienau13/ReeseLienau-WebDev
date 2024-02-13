@@ -15,10 +15,75 @@ body {
     font-family: 'Kaushan Script', cursive;
 }
 
+/* Navigations */
+
+header {
+    width: 80%;
+    padding: 0 10%;
+    /* padding instead of margin so that the background (grey below) fills whole screen */
+    height: 50px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: grey;
+    /* Flexbox Container Properties */
+    display: flex;
+    flex-direction: row;
+    /* great for switching between row and collumn for mobile and laptop */
+    justify-content: space-between;
+    /* also space-around and space-evenly exist */
+    align-items: center;
+    background: url('../img/tweed.jpeg');
+}
+
+header h1 {
+    color: #ccc;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    background-color: rgba(40, 40, 40, 0.1);
+}
+
+nav li {
+    font-size: 18px;
+    height: 50%;
+    line-height: 50px;
+    width: 120px;
+}
+
+nav a {
+    /* remove underline on link: */
+    text-decoration: none;
+    color: #aaa;
+    display: block;
+    /* transitions are always defined at the loading or starting state style */
+    transition: all 1s;
+}
+
+/* anchor tags being hovered over */
+nav a:hover {
+    background-color: rgba(40, 40, 40, 0.5);
+    color: #fff;
+}
+
+nav a.active {
+    background-color: black;
+    color: white;
+}
+
+
+/* Default Gallery Styles */
+
 .container {
     width: 900px;
     /* "auto" centers things horizontally, doesn't work for vertial */
     margin: 0 auto;
+    margin-top: 100px;
     font-size: 0;
     /* to get rid of "shitty half pixel; margin" */
     /* rememebr to redefine fornt size later if you want fonts to show up */
