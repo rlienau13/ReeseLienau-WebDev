@@ -113,3 +113,83 @@ nav a.active {
     text-align: center;
     color: #444;
 }
+
+/* Tranfsorms and Transitions */
+
+.scaleUp {
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+.scaleX {
+    transform: scale(2, 1);
+}
+
+.scaleY {
+    transform: scale(1, 2);
+}
+
+.skewX {
+    /* angles go countercloackwise, so negative angles kinda look positive and positive kinda looks negative */
+    transform: skewX(-20deg);
+}
+
+.skewY {
+    transform: skewY(-20deg);
+}
+
+.skewBoth {
+    transform: skew(10deg, 30deg);
+}
+
+.rotX {
+    transform: rotateX(120deg);
+}
+
+.rotY {
+    transform: rotateY(120deg);
+}
+
+.rotZ {
+    transform: rotateZ(120deg);
+}
+
+.rotateLeft {
+    transform: rotate(-20deg);
+    transition: all 5s ease-in-out;
+}
+
+.rotateLeft:hover {
+    transform: rotate(20deg);
+    cursor: pointer;
+}
+
+.skewHover {
+    transform: skewX(30deg);
+    transition: all 5s ease;
+}
+
+.skewHover:hover {
+    transform: skewX(-30deg);
+    cursor: pointer;
+}
+
+.scaleHover {
+    transform: scale(1.5);
+    transition: all 10s ease-in;
+}
+
+.scaleHover:hover {
+    transform: scale(0.5);
+}
+
+.colorSwap {
+    /*  */
+    filter: grayscale(100%) blur(5px);
+    transition: all 5s ease-out;
+}
+
+.colorSwap:hover {
+    filter: grayscale(0%) blur(0px);
+    transition: all 5s ease-out;
+}
