@@ -112,3 +112,99 @@ img {
         height: 300px;
     }
 }
+
+/* standard layout example */
+
+header {
+    display: flex;
+    min-height: 100px;
+    background-color: aqua;
+}
+
+.wrapper {
+    /* this wrapper exists only to make the main and aside stack nex to each other */
+    display: flex;
+    flex-direction: row;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* space-evenly and space-between have different effects for justification - clear with odd number of images */
+    align-items: center;
+    background-color: darkcyan;
+}
+
+.grid-item {
+    width: 23%;
+    margin: 1%;
+}
+
+.secondary-nav {
+    min-width: 25%;
+    background-color: aquamarine;
+}
+
+.menu {
+    /* remove default styling */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    border-bottom: 1px solid grey;
+}
+
+.menu span {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    /* 400 regular, 600 semibold, 800 bold */
+    display: flex;
+    align-items: center;
+}
+
+.menu a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    background-color: coral;
+    min-height: 100px;
+    display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+    .grid-item {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        /* column-reverse ONLY WORKS BECUASE THERE ARE TWO ITEMS */
+    }
+
+    .secondary-nav {
+        /* this is a flex item property! */
+        order: 1;
+    }
+
+    .grid-container {
+        flex-direction: column;
+        order: 2;
+    }
+
+    .grid-item {
+        width: 95%;
+    }
+}
