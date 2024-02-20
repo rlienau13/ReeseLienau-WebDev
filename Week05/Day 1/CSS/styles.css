@@ -1,0 +1,114 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    /* just always do this ^ */
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+img {
+    width 100%;
+    height: auto;
+}
+
+/* Flexbox Simple Rows and Columns */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* extra styles so we can see our divs */
+    border: 1px solid purple;
+    background-color: rgba(255, 0, 255, 0.3);
+    min-height: 400px;
+}
+
+.item {
+    border: 1px solid cornflowerblue;
+    background-color: rgba(0, 0, 255, 0.3);
+    width: 23%;
+    height: 300px;
+}
+
+/* ATOMIC CSS */
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* atoms */
+
+/* flex __ properties */
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-even {
+    justify-content: space-evenly;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+/* flex item properties */
+.self-start {
+    align-self: flex-start;
+}
+
+.self-end {
+    align-self: flex-end;
+}
+
+.self-center {
+    align-self: center;
+}
+
+.self-stretch {
+    align-self: stretch;
+    /* override needed to wipe out our fixed 300px height for all .item */
+    height: auto;
+}
+
+/* now things that were controlling vertical spacing are controlling horizontal and visa versa */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column
+    }
+
+    .item {
+        width: 90%;
+    }
+
+    /* IMPORTANT */
+    .self-stretch {
+        width: auto;
+        height: 300px;
+    }
+}
