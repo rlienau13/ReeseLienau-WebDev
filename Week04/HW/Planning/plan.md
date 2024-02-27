@@ -38,6 +38,6 @@
 
 
 #### Concepts|skills to be learned:
-- Embeding Videos
+- Embedding Videos
 - Slideshows
 - Pop up Windows
