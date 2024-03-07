@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>15 Data Types P1</title>
+    <style type="text/css">
+    </style>
+
+    <script type="text/javascript">
+        // decalre a variable
+        var myVar;
+        // assigning a value to a variable
+        myVar = 'number';
+        // decalre and assign value in same line
+        var otherVar = 24;
+        // reassign values at any time, AND new type of value
+        otherVar = true;
+
+        console.log(myVar);
+        console.log(typeof myVar);
+
+        var x = 15;
+        var y = '3';
+        var z = 'threw ';
+        console.log(x + y);
+        console.log(x * y);
+
+        // variables and strings mixed
+
+        var temp = 72;
+        var message = "Today's Temperature is " + temp + ' degrees F.';
+        // can also write 'today\'s temp'
+        console.log(message);
+
+        // functions, parameters, and the onclick attribute
+        function sumValues(a, b) {
+            // variables declared inside {} live and die inside {} - called scoping
+            var sum = a + b;
+            // alert is the obnoxious way to make your coworkers hate you
+            alert(sum);
+        }
+        // call a function inside of your code
+        sumValues(10, 20);
+
+        // booleans and conditionals
+        var isOn = true;
+        // toggle between on and off
+        function switchOnOff() {
+            if (isOn === true) {
+                alert('isOn is currently TRUE, switching to FALSE');
+                isOn = false;
+            } else {
+                alert('isOn is currently FALSE, switching to TRUE');
+                isOn = true;
+            }
+        }
+
+        // loops and increments
+        // i++ is shorthand for i = i + 1
+        // i-- is shorthand for i = i - 1
+        // i+=5 is shorthand for i = i + 5
+
+        // BEWARE OF INFINITE LOOPS, YOUR CONDITION MUST EVALUATE TO FALSE EVENTUALLY!! MUST BE ABLE TO ESCAPE LOOP!
+        function countToN(n) {
+            // for loop
+            for (var i = 10; i <= n; i += 5) {
+                console.log(i);
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <!-- call a function on click -->
+
+    <button onclick="switchOnOff()">Toggle ON/OFF</button>
+    <button onclick="countToN(45)">Count to 45</button>
+
+
+</body>
+
+</html>
