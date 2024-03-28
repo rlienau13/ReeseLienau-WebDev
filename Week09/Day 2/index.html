@@ -27,17 +27,17 @@
         .container button {
             width: 100%;
             padding: 10px 0;
-            border: 2px solid grey;
+            border: 2px solid rgb(0, 10, 208);
             cursor: pointer;
             margin: 10px 0;
             color: white;
-            background-color: #555;
+            background-color: blue;
             border-radius: 10px;
-            transition: background-color 1s ease;
+            transition: background-color 0.5s ease;
         }
 
         .container button:hover {
-            background-color: #777;
+            background-color: rgb(0, 10, 208);
         }
 
         input[type='number']{
@@ -50,7 +50,85 @@
         }
 
     </style>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        // dom content loaded event listener
+        document.addEventListener('DOMContentLoaded', function () {
+            // assign HTML elements to global variable
+            // add event listeners
+            // stops page from reloading and clearing out javaScript environment (including console logs)
+            document.getElementById('calcBtn').addEventListener('click', calcTip)
+        });
+
+        // somtimes "event," "ev," "e" etc. but always give this a name
+        function calcTip(event) {
+            event.preventDefault();
+            // grab our output div and store as a varaible for later
+            var result = document.getElementById('tipResult')
+
+            // grab the value from our bill input
+            // just make "for" "name" and "id" all match like they do here with the word "bill"
+            let bill = document.getElementById('bill').value
+            console.log(typeof bill);
+            // looks liek it is coming in as a string! Input values always come in as strings
+            bill = parseFloat(bill);
+
+            // find the selected tip percentage from our array of radio buttons
+            // decalre a few variables for our calculations later
+            let per // what the user picked in the radio group
+            let tip // bill * per
+            let total // bill + tip
+
+            // find the selected tip percentage from our list of radio buttons
+            let arrTip = document.getElementsByName('tip')
+            console.log(arrTip)
+
+            // loop through all of the inputs in our tip list we just got and find inpu with checked=true
+            for (var i = 0; i < arrTip.length; i++) {
+                if (arrTip[i].checked) {
+                    per = arrTip[i].value
+                    // once we find the checked one, we can exit the loop because there is only one checked one!
+                    break
+                }
+            }
+
+            // calculate tip
+            tip = bill * per
+            console.log(tip);
+            tip = moneyRound(tip)
+            total = bill + moneyRound(tip)
+
+            // print out
+            // Convention is to capitalize the thing so you know you're creating a tag, not finding one
+            let p1 = document.createElement('P');
+            let p2 = document.createElement('P');
+            let p3 = document.createElement('P');
+            let p4 = document.createElement('P');
+
+            var t1 = document.createTextNode('Bill is $' + bill);
+            var t2 = document.createTextNode('Tip percentage is ' + per);
+            var t3 = document.createTextNode('Calculated Tip: $' + tip);
+            var t4 = document.createTextNode('Total: $' + total);
+
+            p1.appendChild(t1);
+            p2.appendChild(t2);
+            p3.appendChild(t3);
+            p4.appendChild(t4);
+
+            result.appendChild(p1);
+            result.appendChild(p2);
+            result.appendChild(p3);
+            result.appendChild(p4);
+
+            // dollar sign curly boys: mdm template strings
+
+        }
+
+        // rounded to nearest 100th function, just switch "100" for diff number if you want diff dec place
+        function moneyRound(num) {
+            return Math.ceil(num * 100) / 100
+        }
+
+    </script>
 </head>
 
 <body>
