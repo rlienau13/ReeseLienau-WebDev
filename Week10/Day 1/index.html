@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JS Objects and JSON</title>
+    <script type="text/javascript">
+        // initialize a new object and store it as a variable named customer
+        const customer = {
+            name: 'Anthony',
+            age: 23,
+            married: false,
+            pets: ['dog', 'cat', 'iguana'],
+            siblings: [
+                { name: 'Mary', age: 32, married: true },
+                { name: 'Billy', age: 16, married: false },
+            ],
+        }
+        //marital status
+        console.log(customer.siblings[0].married)
+        //age
+        console.log(customer.age)
+        //pets
+        for (var i = 0; i < customer.pets.length; i++) {
+            console.log(customer.pets[i])
+        };
+
+
+
+    </script>
+</head>
+
+<body></body>
+
+</html>
