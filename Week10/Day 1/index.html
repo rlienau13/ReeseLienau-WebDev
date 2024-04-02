@@ -25,7 +25,14 @@
         for (var i = 0; i < customer.pets.length; i++) {
             console.log(customer.pets[i])
         };
+        // sometimes we need ot convert a javascript obbject we nuilt outselves into an JSON for sharing
+        // we do this with JSON.stringify()
+        const customerJSON = JSON.stringify(customer)
+        console.log(customerJSON)
 
+        // sometimes we receive some JSON and need to convert it to an object
+        const customerObject = JSON.parse(customerJSON);
+        console.log(customerObject);
 
 
     </script>

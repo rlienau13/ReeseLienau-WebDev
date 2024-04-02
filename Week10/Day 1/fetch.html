@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fetcing Data from API Endpoints</title>
+    <script type="text/javascript">
+        // using JS fetch API
+        // 
+
+        // we need to flag this function as asynchronous with 'asynch' whenever we use the 
+        // 'await' flag within the function
+        async function logApiResults() {
+            // think of 'await' as a JS IOU a response, it isn't instant,
+            // so don't move on until we have a proper response
+
+            function randNumRange(min, max) {
+                var rn = Math.round(Math.random() * (max - min) + min)
+                // test = rn
+                // return a value from our function
+                return rn
+            }
+
+            const randomIndex = randNumRange(0, 110);
+
+            const response = await fetch(`https://rickandmortyapi.com/api/character/${randomIndex}`)
+
+            const result = await response.json()
+            console.log(result)
+
+            const message = `${result.name} is a ${result.species} from ${result.origin.name} and they are ${result.gender}`
+            console.log(message)
+
+
+        }
+
+        logApiResults()
+
+
+    </script>
+</head>
+
+<body></body>
+
+</html>
