@@ -21,7 +21,6 @@
                 // return a value from our function
                 return rn
             }
-
             const randomIndex = randNumRange(0, 110);
 
             const response = await fetch(`https://rickandmortyapi.com/api/character/${randomIndex}`)
@@ -32,10 +31,33 @@
             const message = `${result.name} is a ${result.species} from ${result.origin.name} and they are ${result.gender}`
             console.log(message)
 
-
         }
 
         logApiResults()
+
+        // tyring with another API:
+
+        async function logApiResults2() {
+
+            function randNumRange2(min, max) {
+                var rn = Math.round(Math.random() * (max - min) + min)
+                return rn
+            }
+            const randomIndex2 = randNumRange2(0, 100);
+
+            const response2 = await fetch(`https://randomuser.me/api/${randomIndex}`)
+
+            const result2 = await response2.json()
+            console.log(result2)
+
+            const message2 = `${result.name.title} ${result.name.first} ${result.name.last} is a ${result.gender} from ${result.city}, ${result.state}`
+            console.log(message2)
+
+        }
+
+        logApiResults2()
+
+
 
 
     </script>
