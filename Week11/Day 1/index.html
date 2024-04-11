@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geolocation</title>
+    <script type="text/javascript">
+        let loc
+
+        document.addEventListener('DomContentLoaded', () => {
+            getLocation()
+        })
+
+
+        // function getLocation()
+        const getLocation = () => {
+            // check if your browser supports geolocation
+            if (navigator.geolocation && navigator.geolocation.getCurrentPosition) {
+                // geolocation exists and so does the function we need to call to find the current location
+                navigator.geolocation.getCurrentPosition(setPosition, showErrors)
+            } else {
+                // no location, we should display some sort of message ot user
+                alert('your browser does not support geolocation.')
+            }
+        }
+
+        const setPosition = (position) => {
+            console.log(position.cords.latitude);
+            console.log(position.cords.longitude);
+
+            const lat = position.cords.latitude
+            const lon = position.cords.longitude
+            const loc = document.getElementById('location')
+
+
+            loc.innerHTML = `<p> `
+        }
+
+        const showErrors = (error) => {
+            console.log(error);
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    loc.innerHTML = 'user denied the request for Geolocation'
+                    break
+                case error.PERMISSION_UNAVAILABLE:
+                    loc.innerHTML = 'user denied the request for Geolocation'
+                    break
+                case error.TIMEOUT:
+                    loc.innerHTML = 'user denied the request for Geolocation'
+                    break
+                case error.PERMISSION_DENIED:
+                    loc.innerHTML = 'user denied the request for Geolocation'
+                    break
+                case error.PERMISSION_DENIED:
+                    loc.innerHTML = 'user denied the request for Geolocation'
+                    break
+            }
+
+        }
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="location">
+        <p>Currently searching for location...</p>
+    </div>
+</body>
+
+</html>
