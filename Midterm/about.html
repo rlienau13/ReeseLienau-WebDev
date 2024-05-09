@@ -26,6 +26,8 @@
             <a href="https://www.youtube.com/@ReeseLienau/featured" target="_blank"><img src="ico/youTube.jpeg"
                     alt="YouTube Icon"></a>
             <a href="https://www.twistpuzzle.com/" target="_blank"><img src="ico/twist.jpeg" alt="Twist Icon"></a>
+            <a href="#" id="colorToggle" title="Toggle Color Scheme"><img src="ico/dark.ico" alt="Dark Mode Icon"></a>
+            <a href="arcade.html"><img src="ico/arcade.ico" alt="Arcade Icon"></a>
         </div>
         <div class="about">
             <a href="about.html">About</a>
@@ -81,5 +83,28 @@
 
 
 </body>
+
+<!-- JAVASCRIPT STUFF -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('colorToggle');
+        toggle.addEventListener('click', function (event) {
+            event.preventDefault();
+            const currentTheme = document.documentElement.classList.toggle('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+        });
+
+        loadTheme();
+    });
+
+    function loadTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+        } else {
+            document.documentElement.classList.remove('dark-theme');
+        }
+    }
+</script>
 
 </html>

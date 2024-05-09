@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konnect</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="icon" type="image/x-icon" href="ico/Ike.ico">
+    <link rel="icon" type="image/x-icon" href="ico/konnect.ico">
 </head>
 
 <body>
@@ -17,7 +17,6 @@
         <br><br>
         <h4>Konnect!
 
-
         </h4>
         <br><br><br>
         <div class="menu">
@@ -26,6 +25,8 @@
             <a href="https://www.youtube.com/@ReeseLienau/featured" target="_blank"><img src="ico/youTube.jpeg"
                     alt="YouTube Icon"></a>
             <a href="https://www.twistpuzzle.com/" target="_blank"><img src="ico/twist.jpeg" alt="Twist Icon"></a>
+            <a href="#" id="colorToggle" title="Toggle Color Scheme"><img src="ico/dark.ico" alt="Dark Mode Icon"></a>
+            <a href="arcade.html"><img src="ico/arcade.ico" alt="Arcade Icon"></a>
         </div>
         <div class="about">
             <a href="about.html">About</a>
@@ -76,46 +77,46 @@
     <div class="container">
         <div class="column">
             <div class="image-container">
-                <img src="img/konnect/1.jpeg" alt="Ike 1">
-                <div class="image-text">Ike Scrambled</div>
+                <img src="img/konnect/7.jpeg" alt="Konnect 1">
+                <div class="image-text">Packaging Front</div>
             </div>
             <div class="image-container">
-                <img src="img/konnect/2.jpeg" alt="Ike 2">
-                <div class="image-text">Ike Solved</div>
+                <img src="img/konnect/2.jpeg" alt="Konnect 2">
+                <div class="image-text">Packaging Close-up</div>
             </div>
             <div class="image-container">
-                <img src="img/konnect/6.jpeg" alt="Ike 6">
-                <div class="image-text">Ike CAD</div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="image-container">
-                <img src="img/konnect/4.jpeg" alt="Ike 4">
-                <div class="image-text">Ike Solved</div>
-            </div>
-            <div class="image-container">
-                <img src="img/konnect/5.jpeg" alt="Ike 5">
-                <div class="image-text">Ike Solved</div>
-            </div>
-            <div class="image-container">
-                <img src="img/konnect/3.jpeg" alt="Ike 3">
-                <div class="image-text">Ike CAD</div>
+                <img src="img/konnect/6.jpeg" alt="Konnect 6">
+                <div class="image-text">Custom Made Foam Insert</div>
             </div>
         </div>
 
         <div class="column">
             <div class="image-container">
-                <img src="img/konnect/7.jpeg" alt="Ike 7">
-                <div class="image-text">Ike Scrambled</div>
+                <img src="img/konnect/4.jpeg" alt="Konnect 4">
+                <div class="image-text">Boards & Pieces</div>
             </div>
             <div class="image-container">
-                <img src="img/konnect/8.jpeg" alt="Ike 8">
-                <div class="image-text">Ike Solved</div>
+                <img src="img/konnect/5.jpeg" alt="Konnect 5">
+                <div class="image-text">Handmade Drawstring Bag, Pieces</div>
             </div>
             <div class="image-container">
-                <img src="img/konnect/9.jpeg" alt="Ike 9">
-                <div class="image-text">Ike CAD</div>
+                <img src="img/konnect/3.jpeg" alt="Konnect 3">
+                <div class="image-text">Packaging Back</div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="image-container">
+                <img src="img/konnect/1.jpeg" alt="Konnect 7">
+                <div class="image-text">Another Beauty Shot :)</div>
+            </div>
+            <div class="image-container">
+                <img src="img/konnect/9.jpeg" alt="Konnect 8">
+                <div class="image-text">Handmade Bag Full of Handpainted/Lasercut Pieces</div>
+            </div>
+            <div class="image-container">
+                <img src="img/konnect/8.jpeg" alt="Konnect 9">
+                <div class="image-text">The "Shop" <br>Lasercut/Engraved</div>
             </div>
         </div>
     </div>
@@ -134,3 +135,28 @@
         </div>
     </footer>
 </body>
+
+<!-- JAVASCRIPT STUFF -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('colorToggle');
+        toggle.addEventListener('click', function (event) {
+            event.preventDefault();
+            const currentTheme = document.documentElement.classList.toggle('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+        });
+
+        loadTheme();
+    });
+
+    function loadTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+        } else {
+            document.documentElement.classList.remove('dark-theme');
+        }
+    }
+</script>
+
+</html>

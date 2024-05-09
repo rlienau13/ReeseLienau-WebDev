@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Arcade</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" type="image/x-icon" href="ico/arcade.ico">
+
+    <style>
+        header {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0);
+            z-index: 10;
+            padding: 10px 0;
+        }
+
+        .game-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        #snake-head,
+        .snake-body,
+        #food {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+
+        #snake-head {
+            background-color: rgb(255, 0, 128);
+        }
+
+        .snake-body {
+            background-color: rgba(255, 28, 142, 0.733);
+        }
+
+        #food {
+            background-color: rgb(255, 215, 18);
+        }
+    </style>
+</head>
+
+<header>
+    <br><br><br>
+    <h1><a href="arcade.html">The Arcade</a></h1>
+    <h2>Poke Tower Defense</h2>
+    <br><br><br>
+    <div class="menu">
+        <a href="https://www.instagram.com/reeselienaumetalarts" target="_blank"><img src="ico/instagram.jpeg"
+                alt="Insta Icon"></a>
+        <a href="https://www.youtube.com/@ReeseLienau/featured" target="_blank"><img src="ico/youTube.jpeg"
+                alt="YouTube Icon"></a>
+        <a href="https://www.twistpuzzle.com/" target="_blank"><img src="ico/twist.jpeg" alt="Twist Icon"></a>
+        <a href="#" id="colorToggle" title="Toggle Color Scheme"><img src="ico/dark.ico" alt="Dark Mode Icon"></a>
+        <a href="arcade.html"><img src="ico/arcade.ico" alt="Arcade Icon"></a>
+    </div>
+    <div class="about">
+        <a href="about.html">About</a>
+    </div>
+    <!-- Menu -->
+    <div class="portMenu-container">
+        <ul class="portMenu">
+            <li>Sort
+                <ul class="submenu">
+                    <li class="submenu-item">By Type
+                        <ul class="subsubmenu">
+                            <li>
+                                <a href="./sort/puzzles.html">Puzzles</a>
+                            </li>
+                            <li>
+                                <a href="./sort/videos.html">Films/Videos</a>
+                            </li>
+                            <li>
+                                <a href="./sort/videoGames.html">Video Games</a>
+                            </li>
+                            <li>
+                                <a href="./sort/graphicDesign.html">Graphic Design</a>
+                            </li>
+                            <li>
+                                <a href="./sort/writing.html">Writing</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="submenu-item">By Software
+                        <ul class="subsubmenu2">
+                            <li><a href="./sort/cad.html">CAD</a></li>
+                            <li><a href="./sort/illustrator.html">Illustrator/InDesign</a></li>
+                            <li><a href="./sort/premier.html">Premier Pro</a></li>
+                            <li><a href="./sort/gmc.html">Game Maker (GMC)</a></li>
+                            <li><a href="./sort/unity.html">Unity (C#)</a></li>
+                            <li><a href="./sort/written.html">Written</a></li>
+                            <li><a href="./sort/handmade.html">Handmade</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<body>
+    <div id="game-wrapper">
+        <div id="game-container">
+            <div id="snake-head"></div>
+            <!-- Snake body segments added dynamically here -->
+            <div id="food"></div>
+        </div>
+    </div>
+
+
+    <script>
+        let snake = [{ x: 10, y: 10 }];
+        let food = { x: Math.floor(Math.random() * 20), y: Math.floor(Math.random() * 20) };
+        let d;
+        let score = 0;
+
+        document.addEventListener("keydown", direction);
+
+        // function 1!
+        function direction(event) {
+            if (event.keyCode === 37 && d !== "RIGHT") {
+                d = "LEFT";
+            } else if (event.keyCode === 38 && d !== "DOWN") {
+                d = "UP";
+            } else if (event.keyCode === 39 && d !== "LEFT") {
+                d = "RIGHT";
+            } else if (event.keyCode === 40 && d !== "UP") {
+                d = "DOWN";
+            }
+        }
+        // All the keycodes" https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
+
+        // function 2!
+        function collision(head, array) {
+            for (let i = 0; i < array.length; i++) {
+                if (head.x === array[i].x && head.y === array[i].y) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // function 3 yeeehaw!
+        function draw() {
+            const snakeHead = document.getElementById("snake-head");
+            const gameContainer = document.getElementById("game-container");
+            const foodDiv = document.getElementById("food");
+            // DOM DOMDOM DOM
+
+            snakeHead.style.left = snake[0].x * 20 + "px";
+            snakeHead.style.top = snake[0].y * 20 + "px";
+
+            // Removin' existing body segments!!!!!!!! 
+            const existingSnakeSegments = document.querySelectorAll(".snake-body");
+            existingSnakeSegments.forEach(segment => segment.remove());
+            // basically clear before redraw
+
+            // Creatin' new body segments
+            for (let i = 1; i < snake.length; i++) {
+                const snakeSegment = document.createElement("div");
+                snakeSegment.className = "snake-body";
+                snakeSegment.style.left = snake[i].x * 20 + "px";
+                snakeSegment.style.top = snake[i].y * 20 + "px";
+                gameContainer.appendChild(snakeSegment);
+            }
+
+            foodDiv.style.left = food.x * 20 + "px";
+            foodDiv.style.top = food.y * 20 + "px";
+
+            let snakeX = snake[0].x;
+            let snakeY = snake[0].y;
+
+            if (d === "LEFT") snakeX -= 1;
+            if (d === "UP") snakeY -= 1;
+            if (d === "RIGHT") snakeX += 1;
+            if (d === "DOWN") snakeY += 1;
+
+            if (snakeX === food.x && snakeY === food.y) {
+                score++;
+                food = { x: Math.floor(Math.random() * 20), y: Math.floor(Math.random() * 20) };
+            } else {
+                snake.pop();
+            }
+
+            let newHead = { x: snakeX, y: snakeY };
+
+            // all of the lose condition stuff :)
+            if (snakeX < -1 || snakeX >= 74.5 || snakeY < -1 || snakeY >= 41 || collision(newHead, snake)) {
+                clearInterval(game);
+                alert("Game Over! Your score: " + score);
+                location.reload();
+                // restarting the game
+            }
+
+            snake.unshift(newHead);
+        }
+
+        // built in function
+        let game = setInterval(draw, 100);
+
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="prev-button">
+            <a href="arcade.html" class="button">
+                <img src="ico/left.png" alt="Previous">
+            </a>
+        </div>
+        <div class="next-button">
+            <a href="arcade3.html" class="button">
+                <img src="ico/right.png" alt="Next">
+            </a>
+        </div>
+    </footer>
+
+</body>
+
+<!-- JAVASCRIPT STUFF -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('colorToggle');
+        toggle.addEventListener('click', function (event) {
+            event.preventDefault();
+            const currentTheme = document.documentElement.classList.toggle('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+        });
+
+        loadTheme();
+    });
+
+    function loadTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+        } else {
+            document.documentElement.classList.remove('dark-theme');
+        }
+    }
+</script>
+
+</html>
