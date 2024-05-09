@@ -38,7 +38,6 @@
             position: relative;
         }
 
-
         #snake-head,
         .snake-body,
         #food {
@@ -64,7 +63,7 @@
 <header>
     <br><br><br>
     <h1><a href="arcade.html">The Arcade</a></h1>
-    <h2>The Snake Game</h2>
+    <h2>Holy Cow!</h2>
     <br><br><br>
     <div class="menu">
         <a href="https://www.instagram.com/reeselienaumetalarts" target="_blank"><img src="ico/instagram.jpeg"
@@ -120,94 +119,9 @@
 </header>
 
 <body>
-    <div id="game-wrapper">
-        <div id="game-container">
-            <div id="snake-head"></div>
-            <!-- Snake body segments added dynamically here -->
-            <div id="food"></div>
-        </div>
-    </div>
 
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const gameWidth = window.innerWidth;
-            const gameHeight = window.innerHeight;
-            const unitSize = 20; // size of each square (snake segment or food)
-            const xUnits = Math.floor(gameWidth / unitSize);
-            const yUnits = Math.floor(gameHeight / unitSize);
-
-            let snake = [{ x: 10, y: 10 }];
-            let food = { x: Math.floor(Math.random() * xUnits), y: Math.floor(Math.random() * yUnits) };
-            let d; // direction
-            let score = 0;
-
-            document.addEventListener("keydown", direction);
-
-            function direction(event) {
-                if (event.keyCode === 37 && d !== "RIGHT") {
-                    d = "LEFT";
-                } else if (event.keyCode === 38 && d !== "DOWN") {
-                    d = "UP";
-                } else if (event.keyCode === 39 && d !== "LEFT") {
-                    d = "RIGHT";
-                } else if (event.keyCode === 40 && d !== "UP") {
-                    d = "DOWN";
-                }
-            }
-
-            function draw() {
-                const snakeHead = document.getElementById("snake-head");
-                const gameContainer = document.getElementById("game-container");
-                const foodDiv = document.getElementById("food");
-
-                snakeHead.style.left = snake[0].x * unitSize + "px";
-                snakeHead.style.top = snake[0].y * unitSize + "px";
-
-                const existingSnakeSegments = document.querySelectorAll(".snake-body");
-                existingSnakeSegments.forEach(segment => segment.remove());
-
-                for (let i = 1; i < snake.length; i++) {
-                    const snakeSegment = document.createElement("div");
-                    snakeSegment.className = "snake-body";
-                    snakeSegment.style.left = snake[i].x * unitSize + "px";
-                    snakeSegment.style.top = snake[i].y * unitSize + "px";
-                    gameContainer.appendChild(snakeSegment);
-                }
-
-                foodDiv.style.left = food.x * unitSize + "px";
-                foodDiv.style.top = food.y * unitSize + "px";
-
-                let snakeX = snake[0].x;
-                let snakeY = snake[0].y;
-
-                if (d === "LEFT") snakeX -= 1;
-                if (d === "UP") snakeY -= 1;
-                if (d === "RIGHT") snakeX += 1;
-                if (d === "DOWN") snakeY += 1;
-
-                if (snakeX === food.x && snakeY === food.y) {
-                    score++;
-                    food = { x: Math.floor(Math.random() * xUnits), y: Math.floor(Math.random() * yUnits) };
-                } else {
-                    snake.pop();
-                }
-
-                let newHead = { x: snakeX, y: snakeY };
-
-                if (snakeX < 0 || snakeX >= xUnits || snakeY < 0 || snakeY >= yUnits || collision(newHead, snake)) {
-                    clearInterval(game);
-                    alert("Game Over! Your score: " + score);
-                    location.reload(); // restarting the game
-                }
-
-                snake.unshift(newHead);
-            }
-
-            let game = setInterval(draw, 100);
-        });
-    </script>
-
+    <iframe src="https://663cab4cd99d08a567aced08--lively-souffle-412fed.netlify.app/" width="960" height="600"
+        style="border:none;"></iframe>
 
 
     <!-- FOOTER -->
